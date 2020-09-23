@@ -1,4 +1,4 @@
-package com.reggie.util;
+package com.reggie.movie.util;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

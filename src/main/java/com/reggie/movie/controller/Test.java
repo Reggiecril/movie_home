@@ -1,8 +1,8 @@
-package com.reggie.controller;
+package com.reggie.movie.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.common.collect.ImmutableMap;
-import com.reggie.util.JsonUtil;
+import com.reggie.movie.util.JsonUtil;
 
 import java.io.IOException;
 import java.io.InputStream;

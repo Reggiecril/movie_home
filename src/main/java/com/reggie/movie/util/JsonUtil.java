@@ -1,4 +1,4 @@
-package com.reggie.util;
+package com.reggie.movie.util;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;
