@@ -19,7 +19,7 @@ public class DateUtil {
     public static final String DATE_LOCAL = "^[1-9]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$";
     public static final String DATE_ISO = "^[1-9]\\d{3}/([1-9]|0[1-9]|1[0-2])/([1-9]|0[1-9]|[1-2][0-9]|3[0-1])$";
     public static final String DATE_NUMBER = "^[1-9]\\d{3}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$";
-
+    public static final String CHINESE_FORMAT="[0-9]{4}年[0-9]{2}月[0-9]{2}日";
     public static Date toDate(LocalDate date) {
         if (null == date) {
             return null;
@@ -114,7 +114,9 @@ public class DateUtil {
         }
         if (strDate.length() == 10 && strDate.matches(DATE_LOCAL)) {
             return LocalDate.parse(strDate);
-        } else if (strDate.length() == 8 && strDate.matches(DATE_NUMBER)) {
+        } else if (strDate.length() == 11 && strDate.matches(CHINESE_FORMAT)) {
+            return fromChineseString(strDate);
+        }else if (strDate.length() == 8 && strDate.matches(DATE_NUMBER)) {
             return fromNumericString(strDate);
         } else if (strDate.length() == 28 && strDate.indexOf('T') == 10
                 && strDate.indexOf('.') == 19 && strDate.indexOf('+') == 23) {
@@ -128,6 +130,10 @@ public class DateUtil {
 
     public static LocalDate fromNumericString(String numericString) {
         return fromDatePattern(numericString, DatePattern.DAY_INT);
+    }
+
+    public static LocalDate fromChineseString(String numericString) {
+        return fromDatePattern(numericString, DatePattern.CHINESE_YEAR);
     }
 
     public static LocalDate fromISOString(String strDate) {
@@ -418,6 +424,8 @@ public class DateUtil {
         BRAIN_TIME("yyyyMMdd HH:mm:ss"),
         /** yyyy/M/d */
         DAY_WITHOUT_ZERO("yyyy/M/d"),
+        /** yyyy年MM月dd日 */
+        CHINESE_YEAR("yyyy年MM月dd日"),
         /** HH:mm:ss */
         TIME("HH:mm:ss");
 
