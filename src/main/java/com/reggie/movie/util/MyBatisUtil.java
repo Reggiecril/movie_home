@@ -1,5 +1,7 @@
 package com.reggie.movie.util;
 
+import com.reggie.movie.model.MovieInfo;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,5 +112,9 @@ public class MyBatisUtil {
         String str = linestr.substring(0, linestr.length() - 1);
         System.out.println(str);
         return str;
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(MyBatisUtil.getResultMapNew(MovieInfo.class));
     }
 }

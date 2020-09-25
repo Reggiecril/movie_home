@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reggie.movie.mapper.MovieInfoMapper">
+    <resultMap id="movieInfoResultMap" type="com.reggie.movie.model.MovieInfo">
+        <result column="duonao_id" property="duonaoId" jdbcType="VARCHAR"/>
+        <result column="language" property="language" jdbcType="VARCHAR"/>
+        <result column="publish_year" property="publishYear" jdbcType="INTEGER"/>
+        <result column="brief" property="brief" jdbcType="VARCHAR"/>
+        <result column="review" property="review" jdbcType="INTEGER"/>
+        <result column="add_date" property="addDate" jdbcType="DATE"/>
+        <result column="unlike" property="unlike" jdbcType="INTEGER"/>
+        <result column="region" property="region" jdbcType="VARCHAR"/>
+        <result column="hot_rank" property="hotRank" jdbcType="INTEGER"/>
+        <result column="actor" property="actor" jdbcType="VARCHAR"/>
+        <result column="channel" property="channel" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="director" property="director" jdbcType="VARCHAR"/>
+        <result column="interest" property="interest" jdbcType="INTEGER"/>
+        <result column="category" property="category" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="movieInfoField">
+        duonao_id,
+        language,
+        publish_year,
+        brief,
+        review,
+        add_date,
+        unlike,
+        region,
+        hot_rank,
+        actor,
+        channel,
+        name,
+        director,
+        interest,
+        category,
+        image
+    </sql>
+    <insert id="replace">
+        replace into movie
+        (<include refid="movieInfoField"/>)
+        values
+        <foreach collection="movieInfoList" item="a" separator=",">
+            #{a.duonaoId},
+            #{a.language},
+            #{a.publishYear},
+            #{a.brief},
+            #{a.review},
+            #{a.addDate},
+            #{a.unlike},
+            #{a.region},
+            #{a.hotRank},
+            #{a.actor},
+            #{a.channel},
+            #{a.name},
+            #{a.director},
+            #{a.interest},
+            #{a.category},
+            #{a.image}
+        </foreach>
+    </insert>
+
+
+</mapper>

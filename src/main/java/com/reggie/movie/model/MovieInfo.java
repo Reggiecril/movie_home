@@ -15,6 +15,7 @@ public class MovieInfo {
     private String duonaoId;
     private String language;
     private Integer publishYear;
+    private String image;
     private String brief;
     private Integer review;
     private LocalDate addDate;
@@ -25,6 +26,6 @@ public class MovieInfo {
     private String channel;
     private String name;
     private String director;
-    private Integer like;
+    private Integer interest;
     private String category;
 }
