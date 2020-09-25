@@ -22,15 +22,10 @@ public class MovieObjectParser {
         try {
             List<MovieInfo> list = JsonUtil.MAPPER.readValue(is, new TypeReference<List<MovieInfo>>() {
             });
-            System.out.println(list);
             return list;
         } catch (IOException ignored) {
             log.error("[{}] file read failed","json/movie_detail.json");
         }
         return null;
-    }
-
-    public static void main(String[] args) {
-        MovieObjectParser.getMovieFromJson();
     }
 }
