@@ -41,7 +41,7 @@
         (<include refid="movieInfoField"/>)
         values
         <foreach collection="movieInfoList" item="a" separator=",">
-            #{a.duonaoId},
+            (#{a.duonaoId},
             #{a.language},
             #{a.publishYear},
             #{a.brief},
@@ -56,7 +56,7 @@
             #{a.director},
             #{a.interest},
             #{a.category},
-            #{a.image}
+            #{a.image})
         </foreach>
     </insert>
 

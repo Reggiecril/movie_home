@@ -27,9 +27,4 @@ public class MovieObjectParser {
         }
         return null;
     }
-
-    public static void main(String[] args) {
-        List<MovieInfo> a=MovieObjectParser.getMovieFromJson();
-        System.out.println(a);
-    }
 }
