@@ -60,10 +60,10 @@
             #{a.image})
         </foreach>
     </insert>
-    <select id="findByPage" resultMap="movieInfoResultMap">
+    <select id="findById" resultMap="movieInfoResultMap">
         select
         <include refid="movieInfoField" />
-        from movie
+        from movie where duonao_id=#{duonaoId}
     </select>
 
 

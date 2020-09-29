@@ -18,6 +18,6 @@ public interface MovieInfoMapper {
 
     void replace(@Param("movieInfoList") List<MovieInfo> movieInfoList);
 
-    Page<MovieInfo> findByPage();
+    MovieInfo findById(@Param("duonaoId") String duonaoId);
 
 }
