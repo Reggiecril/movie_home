@@ -1,6 +1,7 @@
 package com.reggie.movie.mapper;
 
 import com.github.pagehelper.Page;
+import com.reggie.movie.enums.FieldMap;
 import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.model.MovieInfo;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,4 +18,5 @@ import java.util.List;
 @Mapper
 public interface MovieBriefMapper {
     Page<MovieBrief> findByPage();
+    List<String> findByAttr(@Param("attr") String attr);
 }

@@ -15,5 +15,8 @@ import java.util.List;
 public interface MovieListQueryService {
     Page<MovieBrief> selectAll();
     Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize,Integer order);
+    List<String> selectAllRegion();
+    List<String> selectAllLanguage();
+    List<String> selectAllCategory();
 
 }

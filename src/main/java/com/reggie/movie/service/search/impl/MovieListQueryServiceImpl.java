@@ -2,6 +2,7 @@ package com.reggie.movie.service.search.impl;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.reggie.movie.enums.FieldMap;
 import com.reggie.movie.enums.OrderEnum;
 import com.reggie.movie.mapper.MovieBriefMapper;
 import com.reggie.movie.mapper.MovieInfoMapper;
@@ -34,5 +35,20 @@ public class MovieListQueryServiceImpl implements MovieListQueryService {
     public Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize,Integer order) {
         PageHelper.startPage(pageNum, pageSize, OrderEnum.getOrderByCode(order).name().toLowerCase());
         return movieBriefMapper.findByPage();
+    }
+
+    @Override
+    public List<String> selectAllRegion() {
+        return movieBriefMapper.findByAttr(FieldMap.REGION.getAttribution());
+    }
+
+    @Override
+    public List<String> selectAllLanguage() {
+        return movieBriefMapper.findByAttr(FieldMap.LANGUAGE.getAttribution());
+    }
+
+    @Override
+    public List<String> selectAllCategory() {
+        return movieBriefMapper.findByAttr(FieldMap.CATEGORY.getAttribution());
     }
 }

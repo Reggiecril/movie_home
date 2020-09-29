@@ -20,5 +20,11 @@
         from movie
     </select>
 
+    <select id="findByAttr" parameterType="java.lang.String" resultType="java.lang.String">
+        select
+        ${attr}
+        from movie
+        group by ${attr}
+    </select>
 
 </mapper>

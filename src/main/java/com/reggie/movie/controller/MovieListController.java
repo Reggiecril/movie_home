@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author: yuncheng.xie
  * @date: 9/25/20 2:54 PM
@@ -30,7 +33,12 @@ public class MovieListController {
                                               @RequestParam(value = "order", defaultValue = "0", required = false) Integer order) {
         ModelAndView modelAndView=new ModelAndView();
         Page<MovieBrief> movieInfos = movieListQueryService.selectByPage(pageNum, pageSize, order);
-        modelAndView.addObject("name", PageInfo.of(movieInfos));
+
+        List<Object> a=new ArrayList<>();
+        a.add(movieListQueryService.selectAllRegion());
+        a.add(movieListQueryService.selectAllLanguage());
+        a.add(movieListQueryService.selectAllCategory());
+        modelAndView.addObject("name", a);
         modelAndView.setViewName("index");
         return modelAndView;
     }
