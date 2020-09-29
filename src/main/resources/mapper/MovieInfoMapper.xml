@@ -5,18 +5,19 @@
         <result column="duonao_id" property="duonaoId" jdbcType="VARCHAR"/>
         <result column="language" property="language" jdbcType="VARCHAR"/>
         <result column="publish_year" property="publishYear" jdbcType="INTEGER"/>
-        <result column="brief" property="brief" jdbcType="VARCHAR"/>
+        <result column="brief" property="brief" jdbcType="LONGVARCHAR"/>
         <result column="review" property="review" jdbcType="INTEGER"/>
         <result column="add_date" property="addDate" jdbcType="DATE"/>
         <result column="unlike" property="unlike" jdbcType="INTEGER"/>
         <result column="region" property="region" jdbcType="VARCHAR"/>
         <result column="hot_rank" property="hotRank" jdbcType="INTEGER"/>
-        <result column="actor" property="actor" jdbcType="VARCHAR"/>
+        <result column="actor" property="actor" jdbcType="LONGVARCHAR"/>
         <result column="channel" property="channel" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="director" property="director" jdbcType="VARCHAR"/>
         <result column="interest" property="interest" jdbcType="INTEGER"/>
         <result column="category" property="category" jdbcType="VARCHAR"/>
+        <result column="image" property="image" jdbcType="LONGVARCHAR"/>
     </resultMap>
     <sql id="movieInfoField">
         duonao_id,
@@ -59,6 +60,11 @@
             #{a.image})
         </foreach>
     </insert>
+    <select id="findByPage" resultMap="movieInfoResultMap">
+        select
+        <include refid="movieInfoField" />
+        from movie
+    </select>
 
 
 </mapper>

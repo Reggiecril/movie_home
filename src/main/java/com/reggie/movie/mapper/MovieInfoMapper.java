@@ -1,5 +1,6 @@
 package com.reggie.movie.mapper;
 
+import com.github.pagehelper.Page;
 import com.reggie.movie.model.MovieInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,4 +17,7 @@ import java.util.List;
 public interface MovieInfoMapper {
 
     void replace(@Param("movieInfoList") List<MovieInfo> movieInfoList);
+
+    Page<MovieInfo> findByPage();
+
 }
