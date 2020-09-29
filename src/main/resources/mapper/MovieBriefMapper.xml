@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reggie.movie.mapper.MovieBriefMapper">
+    <resultMap id="movieBriefResultMap" type="com.reggie.movie.model.MovieBrief">
+        <result column="duonao_id" property="duonaoId" jdbcType="VARCHAR"/>
+        <result column="hot_rank" property="hotRank" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="image" property="image" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="movieBriefField">
+        duonao_id,
+        hot_rank,
+        name,
+        image
+    </sql>
+
+    <select id="findByPage" resultMap="movieBriefResultMap">
+        select
+        <include refid="movieBriefField" />
+        from movie
+    </select>
+
+
+</mapper>

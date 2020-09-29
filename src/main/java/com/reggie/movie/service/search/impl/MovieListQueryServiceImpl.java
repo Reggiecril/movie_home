@@ -3,7 +3,9 @@ package com.reggie.movie.service.search.impl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.reggie.movie.enums.OrderEnum;
+import com.reggie.movie.mapper.MovieBriefMapper;
 import com.reggie.movie.mapper.MovieInfoMapper;
+import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.model.MovieInfo;
 import com.reggie.movie.service.search.MovieListQueryService;
 import org.apache.commons.lang3.ObjectUtils;
@@ -21,16 +23,16 @@ import java.util.List;
 @Service
 public class MovieListQueryServiceImpl implements MovieListQueryService {
     @Autowired(required = false)
-    private MovieInfoMapper movieInfoMapper;
+    private MovieBriefMapper movieBriefMapper;
     @Override
-    public Page<MovieInfo> selectAll() {
+    public Page<MovieBrief> selectAll() {
         PageHelper.orderBy(OrderEnum.getOrderByCode(0).name().toLowerCase());
-        return movieInfoMapper.findByPage();
+        return movieBriefMapper.findByPage();
     }
 
     @Override
-    public Page<MovieInfo> selectByPage(Integer pageNum, Integer pageSize,Integer order) {
+    public Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize,Integer order) {
         PageHelper.startPage(pageNum, pageSize, OrderEnum.getOrderByCode(order).name().toLowerCase());
-        return movieInfoMapper.findByPage();
+        return movieBriefMapper.findByPage();
     }
 }
