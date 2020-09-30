@@ -3,7 +3,6 @@ package com.reggie.movie.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.reggie.movie.model.MovieBrief;
-import com.reggie.movie.model.MovieInfo;
 import com.reggie.movie.service.search.MovieListQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,5 +46,13 @@ public class MovieListController {
     public PageInfo<MovieBrief> getAllMovies() {
         Page<MovieBrief> movieInfos = movieListQueryService.selectAll();
         return PageInfo.of(movieInfos);
+    }
+
+    @GetMapping("/")
+    public ModelAndView getIndex() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+
+        return modelAndView;
     }
 }
