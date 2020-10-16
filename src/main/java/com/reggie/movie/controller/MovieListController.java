@@ -6,6 +6,7 @@ import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.service.search.MovieListQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,7 +22,7 @@ import java.util.List;
  * description: MovieListController
  **/
 @Controller
-@RequestMapping("/list")
+@RequestMapping("/")
 public class MovieListController {
     @Autowired
     private MovieListQueryService movieListQueryService;
@@ -49,10 +50,9 @@ public class MovieListController {
     }
 
     @GetMapping("/")
-    public ModelAndView getIndex() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-
-        return modelAndView;
+    public String getIndex(ModelMap map) {
+        Page<MovieBrief> movieInfos = movieListQueryService.selectByPage(1, 10, 2);
+        map.addAttribute("movieInfos", movieInfos);
+        return "index";
     }
 }
