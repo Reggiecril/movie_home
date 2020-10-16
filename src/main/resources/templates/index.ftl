@@ -116,7 +116,7 @@
                     <div class="swiper-wrapper">
                         <#list movieInfos as movie>
                             <div class="swiper-slide">
-                                <a href="/detail/">
+                                <a href="/detail?id=${movie.duonaoId}">
                                     <img src="/images/${movie.image}.jpeg">
                                     <h3 class="hometitle">${movie.name}</h3>
                                 </a>
