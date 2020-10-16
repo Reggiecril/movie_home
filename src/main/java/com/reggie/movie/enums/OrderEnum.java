@@ -1,5 +1,7 @@
 package com.reggie.movie.enums;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 
 /**
@@ -8,17 +10,20 @@ import java.util.Arrays;
  * ticket: AMS-12934
  * description: OrderEnum
  **/
+@Getter
 public enum OrderEnum {
-    PUBLISH_YEAR(0),
-    ADD_DATE(1),
-    HOT_RANK(2),
-    INTEREST(3),
-    UNLIKE(4),
-    REVIEW(5);
+    PUBLISH_YEAR(0, "PUBLISH_YEAR DESC"),
+    ADD_DATE(1, "ADD_DATE DESC"),
+    HOT_RANK(2, "HOT_RANK DESC"),
+    INTEREST(3, "INTEREST DESC"),
+    UNLIKE(4, "UNLIKE DESC"),
+    REVIEW(5, "REVIEW DESC");
     private Integer code;
+    private String name;
 
-    OrderEnum(Integer code) {
+    OrderEnum(Integer code, String name) {
         this.code = code;
+        this.name = name;
     }
 
     public static OrderEnum getOrderByCode(Integer code){

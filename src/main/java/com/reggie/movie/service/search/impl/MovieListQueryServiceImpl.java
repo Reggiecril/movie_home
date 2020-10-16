@@ -5,11 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.reggie.movie.enums.FieldMap;
 import com.reggie.movie.enums.OrderEnum;
 import com.reggie.movie.mapper.MovieBriefMapper;
-import com.reggie.movie.mapper.MovieInfoMapper;
 import com.reggie.movie.model.MovieBrief;
-import com.reggie.movie.model.MovieInfo;
 import com.reggie.movie.service.search.MovieListQueryService;
-import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +30,7 @@ public class MovieListQueryServiceImpl implements MovieListQueryService {
 
     @Override
     public Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize,Integer order) {
-        PageHelper.startPage(pageNum, pageSize, OrderEnum.getOrderByCode(order).name().toLowerCase());
+        PageHelper.startPage(pageNum, pageSize, OrderEnum.getOrderByCode(order).getName().toLowerCase());
         return movieBriefMapper.findByPage();
     }
 
