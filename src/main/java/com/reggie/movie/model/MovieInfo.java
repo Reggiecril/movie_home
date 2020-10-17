@@ -2,6 +2,7 @@ package com.reggie.movie.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
@@ -28,4 +29,9 @@ public class MovieInfo {
     private String director;
     private Integer interest;
     private String category;
+    private Double rate;
+
+    public void setRate() {
+        this.rate = new BigDecimal(rate * 10).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
 }

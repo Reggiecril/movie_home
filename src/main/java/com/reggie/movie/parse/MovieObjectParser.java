@@ -20,8 +20,8 @@ public class MovieObjectParser {
     public static List<MovieInfo> getMovieFromJson(){
         InputStream is = MovieObjectParser.class.getClassLoader().getResourceAsStream("json/movie_detail.json");
         try {
-            return JsonUtil.MAPPER.readValue(is, new TypeReference<List<MovieInfo>>() {
-            });
+             return JsonUtil.MAPPER.readValue(is, new TypeReference<List<MovieInfo>>() {
+             });
         } catch (IOException ignored) {
             log.error("[{}] file read failed","json/movie_detail.json");
         }

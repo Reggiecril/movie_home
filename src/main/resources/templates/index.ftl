@@ -73,7 +73,7 @@
 
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="/images/slider/poster2.jpg">
+                    <img src="/slider/poster2.jpg">
                     <div class="caption">
                         <div class="captioninside">
                             <h3>Movie Title</h3>
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="/images/slider/poster1.jpg">
+                    <img src="/slider/poster1.jpg">
                     <div class="caption">
                         <div class="captioninside">
                             <h3>Movie Title 2</h3>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="/images/slider/poster2.jpg">
+                    <img src="/slider/poster2.jpg">
                     <div class="caption">
                         <div class="captioninside">
                             <h3>Movie Title 3</h3>
@@ -114,10 +114,10 @@
             <div class="recentslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <#list movieInfos as movie>
+                        <#list recentBriefs as movie>
                             <div class="swiper-slide">
                                 <a href="/detail?id=${movie.duonaoId}">
-                                    <img src="/images/${movie.image}.jpeg">
+                                    <img src="/images/${movie.image}.jpeg" width="250px" height="350px">
                                     <h3 class="hometitle">${movie.name}</h3>
                                 </a>
                             </div>
@@ -126,7 +126,7 @@
                     <div class="nextdirection recent-next"><img
                             src="/icons/right-arrow.svg"></div>
                     <div class="leftdirection recent-prev"><img
-                            src="/icons/left-arrow.svg"></div>
+                                src="/icons/left-arrow.svg"></div>
                 </div>
             </div>
         </section>
@@ -136,133 +136,92 @@
             <div class="mostslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/9.jpg">
-                            <h3 class="hometitle">Space Betwen Us</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/2.jpg">
-                            <h3 class="hometitle">John Wick</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/3.jpg">
-                            <h3 class="hometitle">Spider-Man Homecoming</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/4.jpg">
-                            <h3 class="hometitle">Beauty and the Beast</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/5.jpg">
-                            <h3 class="hometitle">Pirates of the Caribbean: Dead Men Tell No Tales</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/6.jpg">
-                            <h3 class="hometitle">Fifty Shades Darker</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/7.jpg">
-                            <h3 class="hometitle">Transformers: The Last Knight</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/8.jpg">
-                            <h3 class="hometitle">xXx: Return of Xander Cage</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/9.jpg">
-                            <h3 class="hometitle">Space Betwen Us</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/2.jpg">
-                            <h3 class="hometitle">John Wick</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/3.jpg">
-                            <h3 class="hometitle">Spider-Man Homecoming</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/4.jpg">
-                            <h3 class="hometitle">Beauty and the Beast</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/5.jpg">
-                            <h3 class="hometitle">Pirates of the Caribbean: Dead Men Tell No Tales</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/6.jpg">
-                            <h3 class="hometitle">Fifty Shades Darker</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/7.jpg">
-                            <h3 class="hometitle">Transformers: The Last Knight</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/8.jpg">
-                            <h3 class="hometitle">xXx: Return of Xander Cage</h3></a></div>
-
-                        <div class="swiper-slide"><a href="mostwatched.html"><img
-                                src="/icons/others.png"></a></div>
+                        <#list hotBriefs as movie>
+                            <div class="swiper-slide">
+                                <a href="/detail?id=${movie.duonaoId}">
+                                    <img src="/images/${movie.image}.jpeg" width="250px" height="350px">
+                                    <h3 class="hometitle">${movie.name}</h3>
+                                </a>
+                            </div>
+                        </#list>
                     </div>
                     <div class="nextdirection most-next"><img
-                            src="/icons/right-arrow.svg"></div>
+                                src="/icons/right-arrow.svg"></div>
                     <div class="leftdirection most-prev"><img
-                            src="/icons/left-arrow.svg"></div>
+                                src="/icons/left-arrow.svg"></div>
                     <!-- Add Pagination -->
                 </div>
             </div>
         </section>
 
         <section class="panel">
-            <h2>Top Rated</h2>
+            <h2>Most Reviewed</h2>
             <div class="topslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/9.jpg">
-                            <h3 class="hometitle">Space Betwen Us</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/2.jpg">
-                            <h3 class="hometitle">John Wick</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/3.jpg">
-                            <h3 class="hometitle">Spider-Man Homecoming</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/4.jpg">
-                            <h3 class="hometitle">Beauty and the Beast</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/5.jpg">
-                            <h3 class="hometitle">Pirates of the Caribbean: Dead Men Tell No Tales</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/6.jpg">
-                            <h3 class="hometitle">Fifty Shades Darker</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/7.jpg">
-                            <h3 class="hometitle">Transformers: The Last Knight</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/8.jpg">
-                            <h3 class="hometitle">xXx: Return of Xander Cage</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/9.jpg">
-                            <h3 class="hometitle">Space Betwen Us</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/2.jpg">
-                            <h3 class="hometitle">John Wick</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/3.jpg">
-                            <h3 class="hometitle">Spider-Man Homecoming</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/4.jpg">
-                            <h3 class="hometitle">Beauty and the Beast</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/5.jpg">
-                            <h3 class="hometitle">Pirates of the Caribbean: Dead Men Tell No Tales</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/6.jpg">
-                            <h3 class="hometitle">Fifty Shades Darker</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/7.jpg">
-                            <h3 class="hometitle">Transformers: The Last Knight</h3></a></div>
-                        <div class="swiper-slide"><a href="single.html"><img
-                                src="/images/8.jpg">
-                            <h3 class="hometitle">xXx: Return of Xander Cage</h3></a></div>
-
-                        <div class="swiper-slide"><a href="mostwatched.html"><img
-                                src="/icons/others.png"></a></div>
+                        <#list mostReviewsBriefs as movie>
+                            <div class="swiper-slide">
+                                <a href="/detail?id=${movie.duonaoId}">
+                                    <img src="/images/${movie.image}.jpeg" width="250px" height="350px">
+                                    <h3 class="hometitle">${movie.name}</h3>
+                                </a>
+                            </div>
+                        </#list>
                     </div>
                     <div class="nextdirection top-next"><img
-                            src="/icons/right-arrow.svg"></div>
+                                src="/icons/right-arrow.svg"></div>
                     <div class="leftdirection top-prev"><img
-                            src="/icons/left-arrow.svg"></div>
+                                src="/icons/left-arrow.svg"></div>
                     <!-- Add Pagination -->
                 </div>
             </div>
         </section>
 
+        <section class="panel">
+            <h2>Most Rated</h2>
+            <div class="topslider">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <#list rateBriefs as movie>
+                            <div class="swiper-slide">
+                                <a href="/detail?id=${movie.duonaoId}">
+                                    <img src="/images/${movie.image}.jpeg" width="250px" height="350px">
+                                    <h3 class="hometitle">${movie.name}</h3>
+                                </a>
+                            </div>
+                        </#list>
+                    </div>
+                    <div class="nextdirection top-next"><img
+                                src="/icons/right-arrow.svg"></div>
+                    <div class="leftdirection top-prev"><img
+                                src="/icons/left-arrow.svg"></div>
+                    <!-- Add Pagination -->
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Most Interested</h2>
+            <div class="topslider">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <#list interestBriefs as movie>
+                            <div class="swiper-slide">
+                                <a href="/detail?id=${movie.duonaoId}">
+                                    <img src="/images/${movie.image}.jpeg" width="250px" height="350px">
+                                    <h3 class="hometitle">${movie.name}</h3>
+                                </a>
+                            </div>
+                        </#list>
+                    </div>
+                    <div class="nextdirection top-next"><img
+                                src="/icons/right-arrow.svg"></div>
+                    <div class="leftdirection top-prev"><img
+                                src="/icons/left-arrow.svg"></div>
+                    <!-- Add Pagination -->
+                </div>
+            </div>
+        </section>
 
     </main>
 

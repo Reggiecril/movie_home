@@ -17,7 +17,8 @@ public enum OrderEnum {
     HOT_RANK(2, "HOT_RANK DESC"),
     INTEREST(3, "INTEREST DESC"),
     UNLIKE(4, "UNLIKE DESC"),
-    REVIEW(5, "REVIEW DESC");
+    REVIEW(5, "REVIEW DESC"),
+    RATE(6, "RATE DESC");
     private Integer code;
     private String name;
 
@@ -26,8 +27,8 @@ public enum OrderEnum {
         this.name = name;
     }
 
-    public static OrderEnum getOrderByCode(Integer code){
-        return Arrays.stream(OrderEnum.values()).filter(x->x.code.equals(code)).findFirst().orElse(OrderEnum.PUBLISH_YEAR);
+    public static OrderEnum getOrderByCode(Integer code) {
+        return Arrays.stream(OrderEnum.values()).filter(x -> x.code.equals(code)).findFirst().orElse(OrderEnum.PUBLISH_YEAR);
     }
 
 }

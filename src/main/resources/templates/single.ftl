@@ -6,11 +6,11 @@
     <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
 
     <!-- Link Swiper's CSS -->
-    <link href="./css/swiper.min.css" rel="stylesheet">
-    <link href="./css/styles.css" rel="stylesheet">
+    <link href="/css/swiper.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
 
-    <script src="./js/jquery-3.1.1.min.js"></script>
-    <script src="./js/script.js"></script>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/script.js"></script>
 
 
     <!-- Demo styles -->
@@ -23,8 +23,8 @@
 <div class="wrapper">
 
     <header class="header">
-        <figure class="logo"><a href="index.html"><img alt="Logo"
-                                                       src="./img/logo.png">
+        <figure class="logo"><a href="/index"><img alt="Logo"
+                                                   src="./img/logo.png">
         </figure>
         </a>
         <nav class="menu">

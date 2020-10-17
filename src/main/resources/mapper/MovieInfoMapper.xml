@@ -18,6 +18,7 @@
         <result column="interest" property="interest" jdbcType="INTEGER"/>
         <result column="category" property="category" jdbcType="VARCHAR"/>
         <result column="image" property="image" jdbcType="LONGVARCHAR"/>
+        <result column="rate" property="rate" jdbcType="NUMERIC"/>
     </resultMap>
     <sql id="movieInfoField">
         duonao_id,
@@ -35,7 +36,8 @@
         director,
         interest,
         category,
-        image
+        image,
+        rate
     </sql>
     <insert id="replace">
         replace into movie
@@ -57,12 +59,16 @@
             #{a.director},
             #{a.interest},
             #{a.category},
-            #{a.image})
+            #{a.image},
+            #{a.rate})
         </foreach>
     </insert>
+    <delete id="deleteAll">
+        delete from movie
+    </delete>
     <select id="findById" resultMap="movieInfoResultMap">
         select
-        <include refid="movieInfoField" />
+        <include refid="movieInfoField"/>
         from movie where duonao_id=#{duonaoId}
     </select>
 

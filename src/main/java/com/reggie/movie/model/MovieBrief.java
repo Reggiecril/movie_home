@@ -2,6 +2,8 @@ package com.reggie.movie.model;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 /**
  * @author: yuncheng.xie
  * @date: 9/29/20 2:44 PM
@@ -14,4 +16,9 @@ public class MovieBrief {
     private String image;
     private Integer hotRank;
     private String name;
+    private Double rate;
+
+    public Double getRate() {
+        return new BigDecimal(rate * 10).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
 }

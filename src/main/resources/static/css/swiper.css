@@ -88,6 +88,10 @@
     position: relative;
 }
 
+.swiper-slide img {
+    margin: auto;
+}
+
 /* Auto Height */
 .swiper-container-autoheight,
 .swiper-container-autoheight .swiper-slide {
