@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Space Between Us</title>
+    <title>${movieInfo.name}</title>
     <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport">
 
     <!-- Link Swiper's CSS -->
@@ -24,12 +24,12 @@
 
     <header class="header">
         <figure class="logo"><a href="/index"><img alt="Logo"
-                                                   src="./img/logo.png">
+                                                   src="/icons/logo.png">
         </figure>
         </a>
         <nav class="menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a>Genres</a>
                     <ul>
                         <li><a href="genre.html">Action</a></li>
@@ -66,87 +66,108 @@
             <input class="searchsubmit" type="submit" value="">
         </form>
 
-        <div class="toggle"><img src="./img/menu.svg"></div>
+        <div class="toggle"><img src="/img/menu.svg"></div>
     </header>
 
     <main class="content">
         <div class="single">
-
-            <section class="trailer">
-                <h3>Trailer</h3>
-                <div class="trailer_frame">
-                    <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/x73-573aWfs"
-                            width="560"></iframe>
-                </div>
-            </section>
-
-            <section class="movie">
-                <img src="./images/9.jpg">
+            <section class="movie" style="opacity:1;background-color: #cecece ">
+                <img src="/images/${movieInfo.image}.jpeg">
                 <ul>
-                    <li>Space Between Us</li>
-                    <li>The first human born on Mars travels to Earth for the first time, experiencing the wonders of
-                        the planet through fresh eyes. He embarks on an adventure with a street smart girl to discover
-                        how he came to be.
-                    </li>
-                    <li><a href="genre.html">Adventure</a>, <a href="genre.html">Drama</a>, <a
-                            href="genre.html">Romance</a></li>
-                    <li><a href="cast.html">Gary Oldman</a>, <a href="cast.html">Asa Butterfield</a></li>
-                    <li>12,000 Views</li>
+                    <li style="color: #2d2d2d">${movieInfo.name}</li>
+                    <li>${movieInfo.brief}</li>
                 </ul>
             </section>
-            <section class="links">
-                <h3>Links</h3>
+            <section class="links" style="opacity:1;background-color: #cecece ">
+                <div style="padding-top: 20px;padding-bottom: 20px;margin-bottom: 10px;border-bottom: #202020 solid 1px;line-height: 15px;">
+                    <h3 style="color: #2d2d2d">详细信息</h3>
+                </div>
                 <ul class="dlinks">
-                    <li><a>Download</a></li>
-                    <li><a href="#">Link1</a></li>
-                    <li><a href="#">Link2</a></li>
-                    <li><a href="#">Link3</a></li>
-                </ul>
-                <ul class="wlinks">
-                    <li><a>Watch</a></li>
-                    <li><a href="#">Link1</a></li>
-                    <li><a href="#">Link2</a></li>
-                    <li><a href="#">Link3</a></li>
+                    <li>
+                        <div style="display:inline-block;">
+                            <p>分类：</p>
+                        </div>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.category}</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div style="display:inline-block;">
+                            <p>频道：</p>
+                        </div>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.channel}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="display:inline-block;">
+                            <p>年份：</p>
+                        </div>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.publishYear}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width: 5%;float: left">
+                            <p>添加：</p>
+                        </div>
+                        <div style="width: 90%;float: right">
+                            <p style="float: left">${movieInfo.addDate}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width: 5%;float: left">
+                            <p>区域：</p>
+                        </div>
+                        <div style="width: 90%;float: right">
+                            <p style="float: left">${movieInfo.region}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width: 5%;float: left">
+                            <p>语言：</p>
+                        </div>
+                        <div style="width: 90%;float: right">
+                            <p style="float: left">${movieInfo.language}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width: 5%;float: left">
+                            <p>导演：</p>
+                        </div>
+                        <div style="width: 90%;float: right">
+                            <p style="float: left">${movieInfo.director}</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="width: 5%;float: left">
+                            <p>主演：</p>
+                        </div>
+                        <div style="width: 90%;float: right">
+                            <p style="float: left">${movieInfo.actor}</p>
+                        </div>
+                    </li>
                 </ul>
             </section>
 
-            <section class="related">
-                <h3>Related movies</h3>
-                <div class="relatemovie">
-                    <a href="#"><img src="./images/2.jpg"></a>
-                    <a href="#"><span class="relatedname">John Wick</span></a>
+            <section class="related" style="opacity:1;background-color: #cecece ">
+                <div style="padding-top: 20px;padding-bottom: 20px;margin-bottom: 10px;border-bottom: #202020 solid 1px;line-height: 15px;">
+                    <h3 style="color: #2d2d2d">相关影片</h3>
                 </div>
-                <div class="relatemovie">
-                    <a href="#"><img src="./images/3.jpg"></a>
-                    <a href="#"><span class="relatedname">Spider Man Homecoming</span></a>
-                </div>
-                <div class="relatemovie">
-                    <a href="#"><img src="./images/4.jpg"></a>
-                    <a href="#"><span class="relatedname">Beauty and Beast</span></a>
-                </div>
-                <div class="relatemovie">
-                    <a href="#"><img src="/images/5.jpg"></a>
-                    <a href="#"><span class="relatedname">Pirates of the Caribbean: Dead Men Tell No Tales</span></a>
-                </div>
-                <div class="relatemovie">
-                    <a href="#"><img src="/images/6.jpg"></a>
-                    <a href="#"><span class="relatedname">Fifty Shades Darker</span></a>
-                </div>
-                <div class="relatemovie">
-                    <a href="#"><img src="/images/7.jpg"></a>
-                    <a href="#"><span class="relatedname">Transformers</span></a>
-                </div>
-
-            </section>
-
-            <section class="comments">
-                <h3>Comments</h3>
+                <#list relatedMovies as movie>
+                    <div class="relatemovie">
+                        <a href="/detail?id=${movie.duonaoId}"><img src="/images/${movie.image}.jpeg" width="250px"
+                                                                    height="280px"></a>
+                        <a href="/detail?id=${movie.duonaoId}"><span class="relatedname">${movie.name}</span></a>
+                    </div>
+                </#list>
             </section>
         </div>
     </main>
 
     <footer class="footer">
-        <div class="copyright"><p>Copyright &copy 2017 www.focusoncode.com</p></div>
+        <div class="copyright"><p>Copyright &copy 2017 www.reggiecril.com</p></div>
         <div class="footermenu">
             <ul>
                 <li><a href="index.html">Home</a></li>

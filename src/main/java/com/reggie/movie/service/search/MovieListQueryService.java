@@ -19,4 +19,6 @@ public interface MovieListQueryService {
     List<String> selectAllLanguage();
     List<String> selectAllCategory();
 
+    Page<MovieBrief> selectRelatedMovies(String duonaoId);
+
 }

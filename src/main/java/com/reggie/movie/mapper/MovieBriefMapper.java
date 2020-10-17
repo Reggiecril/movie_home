@@ -18,5 +18,10 @@ import java.util.List;
 @Mapper
 public interface MovieBriefMapper {
     Page<MovieBrief> findByPage();
+
+    MovieBrief findById(@Param("duonaoId") String duonaoId);
+
     List<String> findByAttr(@Param("attr") String attr);
+
+    Page<MovieBrief> findRelatedMovies(@Param("duonaoId") String duonaoId);
 }

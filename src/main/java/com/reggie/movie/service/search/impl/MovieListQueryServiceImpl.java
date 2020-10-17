@@ -9,6 +9,7 @@ import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.service.search.MovieListQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -47,5 +48,11 @@ public class MovieListQueryServiceImpl implements MovieListQueryService {
     @Override
     public List<String> selectAllCategory() {
         return movieBriefMapper.findByAttr(FieldMap.CATEGORY.getAttribution());
+    }
+
+    @Override
+    public Page<MovieBrief> selectRelatedMovies(String duonaoId) {
+        PageHelper.startPage(1, 6, OrderEnum.HOT_RANK.getName().toLowerCase());
+        return movieBriefMapper.findRelatedMovies(duonaoId);
     }
 }

@@ -18,8 +18,15 @@
 
     <select id="findByPage" resultMap="movieBriefResultMap">
         select
-        <include refid="movieBriefField" />
+        <include refid="movieBriefField"/>
         from movie
+    </select>
+
+    <select id="findById" resultMap="movieBriefResultMap">
+        select
+        <include refid="movieBriefField"/>
+        from movie
+        where duonaoId=#{duonaoId}
     </select>
 
     <select id="findByAttr" parameterType="java.lang.String" resultType="java.lang.String">
@@ -27,6 +34,12 @@
         ${attr}
         from movie
         group by ${attr}
+    </select>
+    <select id="findRelatedMovies" resultMap="movieBriefResultMap">
+        select
+        <include refid="movieBriefField"/>
+        from movie
+        where category=(select category from movie where duonao_id=#{duonaoId})
     </select>
 
 </mapper>
