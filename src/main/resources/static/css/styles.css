@@ -523,7 +523,7 @@ body {
     float: left;
     display: block;
     clear: both;
-    color: #fff;
+    color: #202020;
     padding: 0 0 10px 0;
     line-height: 1.4
 }
@@ -562,8 +562,6 @@ body {
 }
 
 .dlinks li, .wlinks li {
-    display: inline;
-    float: left;
     margin: 0px 10px 5px 0px;
 }
 

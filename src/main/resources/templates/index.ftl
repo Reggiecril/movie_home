@@ -110,7 +110,7 @@
 
     <main class="content">
         <section class="panel">
-            <h2>Recently Added</h2>
+            <h2>最近添加</h2>
             <div class="recentslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -124,7 +124,7 @@
                         </#list>
                     </div>
                     <div class="nextdirection recent-next"><img
-                            src="/icons/right-arrow.svg"></div>
+                                src="/icons/right-arrow.svg"></div>
                     <div class="leftdirection recent-prev"><img
                                 src="/icons/left-arrow.svg"></div>
                 </div>
@@ -132,7 +132,7 @@
         </section>
 
         <section class="panel">
-            <h2>Most Watched</h2>
+            <h2>最多播放</h2>
             <div class="mostslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -155,7 +155,7 @@
         </section>
 
         <section class="panel">
-            <h2>Most Reviewed</h2>
+            <h2>最多点评</h2>
             <div class="topslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -178,7 +178,7 @@
         </section>
 
         <section class="panel">
-            <h2>Most Rated</h2>
+            <h2>最高评分</h2>
             <div class="topslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -201,7 +201,7 @@
         </section>
 
         <section class="panel">
-            <h2>Most Interested</h2>
+            <h2>最多点赞</h2>
             <div class="topslider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">

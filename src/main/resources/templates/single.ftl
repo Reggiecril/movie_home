@@ -91,7 +91,6 @@
                             <p>${movieInfo.category}</p>
                         </div>
                     </li>
-
                     <li>
                         <div style="display:inline-block;">
                             <p>频道：</p>
@@ -109,43 +108,43 @@
                         </div>
                     </li>
                     <li>
-                        <div style="width: 5%;float: left">
+                        <div style="display:inline-block;">
                             <p>添加：</p>
                         </div>
-                        <div style="width: 90%;float: right">
-                            <p style="float: left">${movieInfo.addDate}</p>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.addDate}</p>
                         </div>
                     </li>
                     <li>
-                        <div style="width: 5%;float: left">
+                        <div style="display:inline-block;">
                             <p>区域：</p>
                         </div>
-                        <div style="width: 90%;float: right">
-                            <p style="float: left">${movieInfo.region}</p>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.region}</p>
                         </div>
                     </li>
                     <li>
-                        <div style="width: 5%;float: left">
+                        <div style="display:inline-block;">
                             <p>语言：</p>
                         </div>
-                        <div style="width: 90%;float: right">
-                            <p style="float: left">${movieInfo.language}</p>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.language}</p>
                         </div>
                     </li>
                     <li>
-                        <div style="width: 5%;float: left">
+                        <div style="display:inline-block;">
                             <p>导演：</p>
                         </div>
-                        <div style="width: 90%;float: right">
-                            <p style="float: left">${movieInfo.director}</p>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.director}</p>
                         </div>
                     </li>
                     <li>
-                        <div style="width: 5%;float: left">
+                        <div style="display:inline-block;">
                             <p>主演：</p>
                         </div>
-                        <div style="width: 90%;float: right">
-                            <p style="float: left">${movieInfo.actor}</p>
+                        <div style="display:inline-block;">
+                            <p>${movieInfo.actor}</p>
                         </div>
                     </li>
                 </ul>
