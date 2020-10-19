@@ -15,4 +15,5 @@ public class Attribution {
     private String category;
     private String publicYear;
     private String channel;
+    private Integer pageNum;
 }

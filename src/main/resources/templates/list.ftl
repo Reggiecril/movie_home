@@ -24,43 +24,52 @@
 
     <#include "header.ftl">
 
-    <main class="content">
+    <main class="content" style="margin-top: 80px">
         <section>
             <div class="category">
-                <dl>
-                    <#list attrsMap?keys as itemKey>
+
+                <#list attrsMap?keys as itemKey>
+                    <dl>
                         <dt><a href="#">${itemKey}<i> &gt;</i></a></dt>
-                        <#assign item = map[itemKey]>
+                        <#assign item = attrsMap[itemKey]>
                         <dd>
-                            <#list item as itemValue>//根据key遍历对应的list
+                            <#list item as itemValue>
                                 <a href="${itemValue}">${itemValue}</a>
                             </#list>
                         </dd>
-                    </#list>
-                </dl>
+                    </dl>
+                </#list>
 
             </div>
         </section>
         <section class="centered">
             <h3>Most Watched Movies</h3>
             <div class="movies">
-                <div class="mov">
-                    <a href="single.html">
-                        <img src="/images/9.jpg">
-                        <h2 class="movietitle">The Space Between Us</h2>
-                    </a>
-                </div>
+                <#list movieList.list as movie>
+                    <div class="mov">
+                        <a href="detail?id=${movie.duonaoId}">
+                            <img src="/images/${movie.image}.jpeg">
+                            <h2 class="movietitle">${movie.name}</h2>
+                        </a>
+                    </div>
+                </#list>
             </div>
             <nav class="pagination">
                 <ul>
-                    <li><a href="#">Prev</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a class="menuactive" href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">...</a></li>
-                    <li><a href="#">20</a></li>
-                    <li><a href="#">21</a></li>
-                    <li><a href="#">Next</a></li>
+                    <li>
+                        <a href="<#if RequestParameters['pageNume']??>&<#else>?</#if>pageNum=${movieList.prePage}">Prev</a>
+                    </li>
+                    <#list movieList.navigatepageNums as pages>
+                        <li><a <#if pages==movieList.pageNum>
+                                class="menuactive"
+                            </#if>
+                                    href="<#if RequestParameters['pageNume']??>&<#else>?</#if>pageNum=${pages}">${pages}</a>
+                        </li>
+                    </#list>
+
+                    <li>
+                        <a href="<#if RequestParameters['pageNume']??>&<#else>?</#if>pageNum=${movieList.nextPage}">Next</a>
+                    </li>
                 </ul>
             </nav>
         </section>

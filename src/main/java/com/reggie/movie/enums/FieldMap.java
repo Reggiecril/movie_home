@@ -13,7 +13,7 @@ public enum FieldMap {
     REGION("区域", "region"),
     LANGUAGE("语言", "language"),
     CATEGORY("分类", "category"),
-    PUBLISH_YEAR("年份", "publicYear"),
+    PUBLISH_YEAR("年份", "publishYear"),
     CHANNEL("频道", "channel");
     private String attribution;
     private String chineseName;

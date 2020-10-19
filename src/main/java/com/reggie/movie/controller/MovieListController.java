@@ -74,13 +74,14 @@ public class MovieListController {
         return "index";
     }
 
-    @GetMapping(value = "list")
-    public String getList(ModelMap map, @RequestBody Attribution attribution) {
+    @GetMapping(value = "/list")
+    public String getList(ModelMap map, @RequestBody(required = false) Attribution attribution) {
         Map<String, List<String>> attrsMap = movieListQueryService.selectAllAttrs();
         map.addAttribute("attrsMap", attrsMap);
 
         if (ObjectUtils.isEmpty(attribution)) {
-
+            Page<MovieBrief> movieList = movieListQueryService.selectByPage(102, pageSize, OrderEnum.PUBLISH_YEAR.getCode());
+            map.addAttribute("movieList", PageInfo.of(movieList));
         }
 
         return "list";
