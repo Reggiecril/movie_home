@@ -27,36 +27,17 @@
         <div class="swiper-container">
 
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="/slider/poster2.jpg">
-                    <div class="caption">
-                        <div class="captioninside">
-                            <h3>Movie Title</h3>
-                            <p>Lorem ipsum dolor siamet</p>
-                            <a class="playbutton" href="single.html">Play</a>
+                <#list bannerList as slide>
+                    <div class="swiper-slide">
+                        <img src="banner_image/${slide.image}">
+                        <div class="caption">
+                            <div class="captioninside">
+                                <h3>${slide.title}</h3>
+                                <a class="playbutton" href="/detail?id=${slide.id}">Enter</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="/slider/poster1.jpg">
-                    <div class="caption">
-                        <div class="captioninside">
-                            <h3>Movie Title 2</h3>
-                            <p>Lorem ipsum dolor siamet</p>
-                            <a class="playbutton" href="single.html">Play</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <img src="/slider/poster2.jpg">
-                    <div class="caption">
-                        <div class="captioninside">
-                            <h3>Movie Title 3</h3>
-                            <p>Lorem ipsum dolor siamet</p>
-                            <a class="playbutton" href="single.html">Play</a>
-                        </div>
-                    </div>
-                </div>
+                </#list>
             </div>
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>

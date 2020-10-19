@@ -35,7 +35,7 @@ public class MovieObjectParser {
             return JsonUtil.MAPPER.readValue(is, new TypeReference<List<Banner>>() {
             });
         } catch (IOException ignored) {
-            log.error("[{}] file read failed", "json/movie_detail.json");
+            log.error("[{}] file read failed", "json/banner.json");
         }
         return null;
     }
