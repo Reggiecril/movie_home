@@ -972,3 +972,59 @@ body {
         float: none;
     }
 }
+
+
+.category {
+    width: 900px;
+    border: 1px solid #eee;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.category-column1 {
+    padding: 5px;
+    border-bottom: 1px dashed #eee;
+}
+
+.category-column2 {
+    display: inline-block;
+}
+
+.category dl {
+    overflow: hidden;
+    padding: 0px 0px 10px 0px;
+}
+
+.category dt {
+    width: 10%;
+    float: left;
+    display: block;
+    position: relative;
+}
+
+.category dt a {
+    color: #D52341;
+    text-decoration: none;
+
+}
+
+.category dd {
+    width: 80%;
+    display: inline-block;
+    border-bottom: 1px dashed #E3E3E3;
+}
+
+.category dd a {
+    font-size: 12px;
+    display: inline-block;
+    color: #666;
+    padding: 0 10px;
+    margin: 4px 0px 10px 0px;
+    border-left: 1px solid #E3E3E3;
+    text-decoration: none;
+
+}
+
+.category dd a:hover {
+    color: #FF0036;
+}

@@ -6,17 +6,21 @@ import com.reggie.movie.enums.OrderEnum;
 import com.reggie.movie.mapper.BannerMapper;
 import com.reggie.movie.model.Banner;
 import com.reggie.movie.model.MovieBrief;
+import com.reggie.movie.request.Attribution;
 import com.reggie.movie.service.search.MovieListQueryService;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: yuncheng.xie
@@ -42,9 +46,6 @@ public class MovieListController {
         Page<MovieBrief> movieInfos = movieListQueryService.selectByPage(pageNum, pageSize, order);
 
         List<Object> a = new ArrayList<>();
-        a.add(movieListQueryService.selectAllRegion());
-        a.add(movieListQueryService.selectAllLanguage());
-        a.add(movieListQueryService.selectAllCategory());
         modelAndView.addObject("name", a);
         modelAndView.setViewName("index");
         return modelAndView;
@@ -72,4 +73,17 @@ public class MovieListController {
         map.addAttribute("mostReviewsBriefs", mostReviewsBriefs);
         return "index";
     }
+
+    @GetMapping(value = "list")
+    public String getList(ModelMap map, @RequestBody Attribution attribution) {
+        Map<String, List<String>> attrsMap = movieListQueryService.selectAllAttrs();
+        map.addAttribute("attrsMap", attrsMap);
+
+        if (ObjectUtils.isEmpty(attribution)) {
+
+        }
+
+        return "list";
+    }
+
 }

@@ -1,10 +1,12 @@
 package com.reggie.movie.service.search;
 
 import com.github.pagehelper.Page;
+import com.reggie.movie.enums.FieldMap;
 import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.model.MovieInfo;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: yuncheng.xie
@@ -14,10 +16,12 @@ import java.util.List;
  **/
 public interface MovieListQueryService {
     Page<MovieBrief> selectAll();
-    Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize,Integer order);
-    List<String> selectAllRegion();
-    List<String> selectAllLanguage();
-    List<String> selectAllCategory();
+
+    Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize, Integer order);
+
+    List<String> selectByAttrs(FieldMap fieldMap);
+
+    Map<String, List<String>> selectAllAttrs();
 
     Page<MovieBrief> selectRelatedMovies(String duonaoId);
 

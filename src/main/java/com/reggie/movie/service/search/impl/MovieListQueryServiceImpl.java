@@ -7,11 +7,14 @@ import com.reggie.movie.enums.OrderEnum;
 import com.reggie.movie.mapper.MovieBriefMapper;
 import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.service.search.MovieListQueryService;
+import com.reggie.movie.util.TextUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: yuncheng.xie
@@ -36,19 +39,19 @@ public class MovieListQueryServiceImpl implements MovieListQueryService {
     }
 
     @Override
-    public List<String> selectAllRegion() {
-        return movieBriefMapper.findByAttr(FieldMap.REGION.getAttribution());
+    public Map<String, List<String>> selectAllAttrs() {
+        Map<String, List<String>> map = new HashMap<>(16);
+        for (FieldMap value : FieldMap.values()) {
+            map.put(value.getChineseName(), movieBriefMapper.findByAttr(TextUtil.humpToLine(value.getAttribution())));
+        }
+        return map;
     }
 
     @Override
-    public List<String> selectAllLanguage() {
-        return movieBriefMapper.findByAttr(FieldMap.LANGUAGE.getAttribution());
+    public List<String> selectByAttrs(FieldMap fieldMap) {
+        return movieBriefMapper.findByAttr(fieldMap.getAttribution());
     }
 
-    @Override
-    public List<String> selectAllCategory() {
-        return movieBriefMapper.findByAttr(FieldMap.CATEGORY.getAttribution());
-    }
 
     @Override
     public Page<MovieBrief> selectRelatedMovies(String duonaoId) {

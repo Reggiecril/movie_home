@@ -28,7 +28,7 @@
                     <li><a href="language.html">German</a></li>
                 </ul>
             </li>
-            <li><a href="mostwatched.ftl">Most Watched</a></li>
+            <li><a href="list.ftl">Most Watched</a></li>
             <li class="mobsearch">
                 <form class="mobform">
                     <input class="mobsearchfield" name="s" placeholder="Search..." type="text"/>

@@ -1,6 +1,6 @@
 package com.reggie.movie.enums;
 
-import lombok.Data;
+import lombok.Getter;
 
 /**
  * @author: yuncheng.xie
@@ -8,17 +8,18 @@ import lombok.Data;
  * ticket: AMS-12934
  * description: FieldMap
  **/
-
+@Getter
 public enum FieldMap {
-    REGION("region"),
-    LANGUAGE("language"),
-    CATEGORY("category");
+    REGION("区域", "region"),
+    LANGUAGE("语言", "language"),
+    CATEGORY("分类", "category"),
+    PUBLISH_YEAR("年份", "publicYear"),
+    CHANNEL("频道", "channel");
     private String attribution;
-    FieldMap(String attribution) {
-        this.attribution=attribution;
-    }
+    private String chineseName;
 
-    public String getAttribution() {
-        return attribution;
+    FieldMap(String chineseName, String attribution) {
+        this.chineseName = chineseName;
+        this.attribution = attribution;
     }
 }
