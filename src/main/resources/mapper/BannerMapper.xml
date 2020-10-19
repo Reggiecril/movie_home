@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.reggie.movie.mapper.BannerMapper">
+    <resultMap id="bannerResultMap" type="com.reggie.movie.model.Banner">
+        <result column="banner_id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="image" property="image" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="bannerField">
+        banner_id,
+        title,
+        image
+    </sql>
+
+    <select id="getAllBanners" resultMap="bannerResultMap">
+        select
+        <include refid="bannerField"/>
+        from banner
+    </select>
+
+    <delete id="deleteAll">
+        delete from banner
+    </delete>
+
+    <insert id="replace">
+        replace into banner
+        (<include refid="bannerField"/>)
+        values
+        <foreach collection="bannerList" item="a" separator=",">
+            (#{a.id},
+            #{a.title},
+            #{a.image})
+        </foreach>
+    </insert>
+</mapper>

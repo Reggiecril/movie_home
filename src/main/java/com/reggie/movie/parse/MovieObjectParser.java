@@ -1,6 +1,7 @@
 package com.reggie.movie.parse;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.reggie.movie.model.Banner;
 import com.reggie.movie.model.MovieInfo;
 import com.reggie.movie.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -17,13 +18,24 @@ import java.util.List;
  **/
 @Slf4j
 public class MovieObjectParser {
-    public static List<MovieInfo> getMovieFromJson(){
+    public static List<MovieInfo> getMovieFromJson() {
         InputStream is = MovieObjectParser.class.getClassLoader().getResourceAsStream("json/movie_detail.json");
         try {
-             return JsonUtil.MAPPER.readValue(is, new TypeReference<List<MovieInfo>>() {
-             });
+            return JsonUtil.MAPPER.readValue(is, new TypeReference<List<MovieInfo>>() {
+            });
         } catch (IOException ignored) {
-            log.error("[{}] file read failed","json/movie_detail.json");
+            log.error("[{}] file read failed", "json/movie_detail.json");
+        }
+        return null;
+    }
+
+    public static List<Banner> getBannerFromJson() {
+        InputStream is = MovieObjectParser.class.getClassLoader().getResourceAsStream("json/banner.json");
+        try {
+            return JsonUtil.MAPPER.readValue(is, new TypeReference<List<Banner>>() {
+            });
+        } catch (IOException ignored) {
+            log.error("[{}] file read failed", "json/movie_detail.json");
         }
         return null;
     }
