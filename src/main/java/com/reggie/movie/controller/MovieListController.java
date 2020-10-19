@@ -3,6 +3,8 @@ package com.reggie.movie.controller;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.reggie.movie.enums.OrderEnum;
+import com.reggie.movie.mapper.BannerMapper;
+import com.reggie.movie.model.Banner;
 import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.service.search.MovieListQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class MovieListController {
     private static final int pageSize = 30;
     @Autowired
     private MovieListQueryService movieListQueryService;
+
+    @Autowired(required = false)
+    private BannerMapper bannerMapper;
 
     @GetMapping("/page")
     public ModelAndView getMovieByPage(@RequestParam(value = "pageNum", defaultValue = "1", required = false) Integer pageNum,
@@ -58,6 +63,8 @@ public class MovieListController {
         Page<MovieBrief> rateBriefs = movieListQueryService.selectByPage(1, pageSize, OrderEnum.RATE.getCode());
         Page<MovieBrief> interestBriefs = movieListQueryService.selectByPage(1, pageSize, OrderEnum.INTEREST.getCode());
         Page<MovieBrief> mostReviewsBriefs = movieListQueryService.selectByPage(1, pageSize, OrderEnum.REVIEW.getCode());
+        List<Banner> bannerList = bannerMapper.getAllBanners();
+        map.addAttribute("bannerList", bannerList);
         map.addAttribute("recentBriefs", recentBriefs);
         map.addAttribute("hotBriefs", hotBriefs);
         map.addAttribute("rateBriefs", rateBriefs);

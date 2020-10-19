@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 public class Banner {
-    private Integer id;
+    private String id;
     private String title;
     private String image;
 }
