@@ -20,9 +20,9 @@
     </style>
 </head>
 <body>
-<#assign urlPath=url>
+<#assign urlPath=url+'?'>
 <#if params??&&(params?size>0)>
-    <#assign urlPath=url+'?'>
+    <#assign urlPath=url>
 </#if>
 
 <div class="wrapper">
@@ -35,13 +35,19 @@
                 <dl>
                     <dt><a href="#">频道<i> &gt;</i></a></dt>
                     <dd>
-                        ${urlPath}
-                        <a href="${urlPath?replace('(^|\\\\?|&)channel=([^&]*)','','r')+"channel=All"}">全部</a>
+                        <a href="${urlPath?replace('channel=([^&]*)','','r')+"channel=All"}">全部</a>
                         <#list attrsMap['channel'] as category>
-                            <#if params['channel']??>
-                                <a href="${urlPath?replace('(^|\\\\?|&)channel=([^&]*)','','r')+"channel="+category}">${category}</a>
+                            <#if params??>
+                                <#if params["channel"]??>
+                                    1
+                                    <a href="${urlPath?replace('channel=([^&]*)','','r')+"channel="+category}">${category}</a>
+                                <#else>
+                                    2
+                                    <a href="${urlPath?replace('channel=([^&]*)','','r')+"&channel="+category}">${category}</a>
+                                </#if>
                             <#else>
-                                <a href="${urlPath+params['channel']}">${category}</a>
+                                3
+                                <a href="${urlPath?replace('channel=([^&]*)','','r')+"?channel="+category}">${category}</a>
                             </#if>
                         </#list>
                     </dd>

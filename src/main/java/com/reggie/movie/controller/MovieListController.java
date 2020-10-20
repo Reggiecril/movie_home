@@ -83,7 +83,9 @@ public class MovieListController {
     public String getList(ModelMap map, HttpServletRequest request, @RequestBody(required = false) Attribution attribution) {
         Map<String, List<String>> attrsMap = movieListQueryService.selectAllAttrs();
         map.addAttribute("attrsMap", attrsMap);
-        map.addAttribute("params", request.getParameterMap().entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, x -> ArrayUtils.toString(x.getValue()))));
+        if (!request.getParameterMap().isEmpty()) {
+            map.addAttribute("params", request.getParameterMap().entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, x -> ArrayUtils.toString(x.getValue()))));
+        }
         map.addAttribute("url", request.getRequestURI());
 
         if (ObjectUtils.isEmpty(attribution)) {
