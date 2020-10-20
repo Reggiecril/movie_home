@@ -164,7 +164,7 @@
 
 
     <!-- Swiper JS -->
-    <script src="/js/swiper.min.js"></script>
+    <script src="/js/swiper.js"></script>
 
     <!-- Initialize Swiper -->
     <script>

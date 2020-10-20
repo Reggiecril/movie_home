@@ -42,7 +42,7 @@ public class MovieListQueryServiceImpl implements MovieListQueryService {
     public Map<String, List<String>> selectAllAttrs() {
         Map<String, List<String>> map = new HashMap<>(16);
         for (FieldMap value : FieldMap.values()) {
-            map.put(value.getChineseName(), movieBriefMapper.findByAttr(TextUtil.humpToLine(value.getAttribution())));
+            map.put(value.getAttribution(), movieBriefMapper.findByAttr(TextUtil.humpToLine(value.getAttribution())));
         }
         return map;
     }

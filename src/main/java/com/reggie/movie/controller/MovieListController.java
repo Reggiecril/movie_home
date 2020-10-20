@@ -8,7 +8,9 @@ import com.reggie.movie.model.Banner;
 import com.reggie.movie.model.MovieBrief;
 import com.reggie.movie.request.Attribution;
 import com.reggie.movie.service.search.MovieListQueryService;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,9 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author: yuncheng.xie
@@ -75,9 +80,11 @@ public class MovieListController {
     }
 
     @GetMapping(value = "/list")
-    public String getList(ModelMap map, @RequestBody(required = false) Attribution attribution) {
+    public String getList(ModelMap map, HttpServletRequest request, @RequestBody(required = false) Attribution attribution) {
         Map<String, List<String>> attrsMap = movieListQueryService.selectAllAttrs();
         map.addAttribute("attrsMap", attrsMap);
+        map.addAttribute("params", request.getParameterMap().entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, x -> ArrayUtils.toString(x.getValue()))));
+        map.addAttribute("url", request.getRequestURI());
 
         if (ObjectUtils.isEmpty(attribution)) {
             Page<MovieBrief> movieList = movieListQueryService.selectByPage(102, pageSize, OrderEnum.PUBLISH_YEAR.getCode());
