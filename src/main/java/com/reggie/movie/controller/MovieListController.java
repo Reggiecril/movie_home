@@ -84,7 +84,7 @@ public class MovieListController {
         Map<String, List<String>> attrsMap = movieListQueryService.selectAllAttrs();
         map.addAttribute("attrsMap", attrsMap);
         if (!request.getParameterMap().isEmpty()) {
-            map.addAttribute("params", request.getParameterMap().entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, x -> ArrayUtils.toString(x.getValue()))));
+            map.addAttribute("params", request.getParameterMap().entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, x -> x.getValue()[0])));
         }
         map.addAttribute("url", request.getRequestURI());
 
