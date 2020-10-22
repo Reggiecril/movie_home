@@ -122,32 +122,32 @@
             </div>
         </section>
         <section class="centered">
-            <h3>Most Watched Movies</h3>
-            <div class="movies">
-                <#list movieList.list as movie>
-                    <div class="mov">
-                        <a href="detail?id=${movie.duonaoId}">
-                            <img src="/images/${movie.image}.jpeg">
-                            <h2 class="movietitle">${movie.name}</h2>
-                        </a>
-                    </div>
-                </#list>
-            </div>
+            <#--            <h3>Most Watched Movies</h3>-->
+            <#--            <div class="movies">-->
+            <#--                <#list movieList.list as movie>-->
+            <#--                    <div class="mov">-->
+            <#--                        <a href="detail?id=${movie.duonaoId}">-->
+            <#--                            <img src="/images/${movie.image}.jpeg">-->
+            <#--                            <h2 class="movietitle">${movie.name}</h2>-->
+            <#--                        </a>-->
+            <#--                    </div>-->
+            <#--                </#list>-->
+            <#--            </div>-->
             <nav class="pagination">
                 <ul>
                     <li>
-                        <a href="<#if RequestParameters['pageNume']??>&<#else>?</#if>pageNum=${movieList.prePage}">Prev</a>
+                        <a href="<#if params['pageNum']??>&<#else>?</#if>pageNum=${movieList.prePage}">Prev</a>
                     </li>
                     <#list movieList.navigatepageNums as pages>
                         <li><a <#if pages==movieList.pageNum>
                                 class="menuactive"
                             </#if>
-                                    href="<#if RequestParameters['pageNume']??>&<#else>?</#if>pageNum=${pages}">${pages}</a>
+                                    href="<#if params['pageNum']??>&<#else>?</#if>pageNum=${pages}">${pages}</a>
                         </li>
                     </#list>
 
                     <li>
-                        <a href="<#if RequestParameters['pageNume']??>&<#else>?</#if>pageNum=${movieList.nextPage}">Next</a>
+                        <a href="<#if params['pageNum']??>&<#else>?</#if>pageNum=${movieList.nextPage}">Next</a>
                     </li>
                 </ul>
             </nav>

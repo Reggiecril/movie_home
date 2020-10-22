@@ -19,6 +19,8 @@ public interface MovieListQueryService {
 
     Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize, Integer order);
 
+    Page<MovieBrief> selectByPageWithAttrs(Integer pageNum, Integer pageSize, Integer order, Map<String, String> map);
+
     List<String> selectByAttrs(FieldMap fieldMap);
 
     Map<String, List<String>> selectAllAttrs();

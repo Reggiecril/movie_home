@@ -26,16 +26,27 @@ import java.util.Map;
 public class MovieListQueryServiceImpl implements MovieListQueryService {
     @Autowired(required = false)
     private MovieBriefMapper movieBriefMapper;
+
     @Override
     public Page<MovieBrief> selectAll() {
         PageHelper.orderBy(OrderEnum.getOrderByCode(0).name().toLowerCase());
-        return movieBriefMapper.findByPage();
+        return movieBriefMapper.findByPage(null, null, null, null, null);
     }
 
     @Override
-    public Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize,Integer order) {
+    public Page<MovieBrief> selectByPage(Integer pageNum, Integer pageSize, Integer order) {
         PageHelper.startPage(pageNum, pageSize, OrderEnum.getOrderByCode(order).getName().toLowerCase());
-        return movieBriefMapper.findByPage();
+        return movieBriefMapper.findByPage(null, null, null, null, null);
+    }
+
+    @Override
+    public Page<MovieBrief> selectByPageWithAttrs(Integer pageNum, Integer pageSize, Integer order, Map<String, String> map) {
+        PageHelper.startPage(pageNum, pageSize, OrderEnum.getOrderByCode(order).getName().toLowerCase());
+        return movieBriefMapper.findByPage(map.getOrDefault(FieldMap.REGION.getAttribution(), null),
+                map.getOrDefault(FieldMap.LANGUAGE.getAttribution(), null),
+                map.getOrDefault(FieldMap.CATEGORY.getAttribution(), null),
+                map.getOrDefault(FieldMap.PUBLISH_YEAR.getAttribution(), null),
+                map.getOrDefault(FieldMap.CHANNEL.getAttribution(), null));
     }
 
     @Override
